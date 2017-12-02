@@ -112,7 +112,7 @@ class WebDB {
     $link = self::connect();
 
     // SELECT SUM(balance) * AVG(rate) AS value, coin, created FROM `snapshot` GROUP BY coin, created, ID_exchange ORDER BY `created` ASC
-    $query = "SELECT SUM(balance) * AVG(rate) AS value, balance, coin, created FROM `snapshot` GROUP BY coin, created, ID_exchange ORDER BY `created` ASC";
+    $query = "SELECT SUM(balance) * AVG(rate) AS value, SUM(balance) AS balance, coin, created FROM `snapshot` GROUP BY coin, created, ID_exchange ORDER BY `created` ASC";
 
     $result = mysql_query( $query, $link );
     if ( !$result ) {
